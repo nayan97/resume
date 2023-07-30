@@ -6,16 +6,11 @@
 								<span>Main</span>
 							</li>
 							<li class="active"> 
-								<a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+								<a href="{{ route('admin.dashboard.page')}}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
+						
 							<li> 
-								<a href="appointment-list.html"><i class="fe fe-layout"></i> <span>Appointments</span></a>
-							</li>
-							<li> 
-								<a href="specialities.html"><i class="fe fe-users"></i> <span>Specialities</span></a>
-							</li>
-							<li> 
-								<a href="doctor-list.html"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+								<a href="{{ route('personal.index')}}"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
 							</li>
 							<li> 
 								<a href="patient-list.html"><i class="fe fe-user"></i> <span>Patients</span></a>
