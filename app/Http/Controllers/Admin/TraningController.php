@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Edu;
+use App\Models\Skill;
+use App\Models\Traning;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class educationController extends Controller
+class TraningController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $edu = Edu::latest() -> get();
-        return view('admin.edu.index',[
-            'edu'    => $edu,
-            'type'   => 'add'
+
+    {   $traning =Traning::latest()-> get();
+        $skill =Skill::all();
+
+        return view('admin.courece.index',[
+            'traning'    => $traning,
+            'skill'      => $skill,
+            'type'       => 'add'
         ]);
     }
 
@@ -33,18 +37,21 @@ class educationController extends Controller
      */
     public function store(Request $request)
     {
+        
+
         $this -> validate($request, [
-            'ins'         => 'required',
-            'depart'      => 'required',
-            'year'        => 'required',
-            'cgpa'        => 'required'
+            'ins'            => 'required',
+            'title'          => 'required',
+            'startdate'      => 'required',
+            'enddate'        => 'required'
 
           ]);
-              Edu::create([
-            'ins'         => $request -> ins,
-            'dept'        => $request -> depart,
-            'date'        => $request -> year,
-            'cgpa'        => $request -> cgpa,
+          Traning::create([
+            'name'         => $request -> ins,
+            'title'        => $request -> title,
+            'date'         => $request -> startdate,
+            'dates'        => $request -> enddate,
+            'skills'       => json_encode($request -> skill)
          
     
           ]);

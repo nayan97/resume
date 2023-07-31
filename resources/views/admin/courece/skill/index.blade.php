@@ -9,9 +9,6 @@
 								</div>
 								<div class="card-body">
                                     
-                                    @include('validate')
-
-
                                     <table class="table table-striped">
                                         <thead> 
                                                 <tr>
@@ -27,7 +24,7 @@
                                         <tbody>
                                       
 
-                                        @forelse ($edu as $item)
+                                        @forelse ($skills as $item)
                                         <tr>
                                             <td>{{$loop ->index + 1}}</td>
                                             <td>{{$item -> name}}</td>
@@ -68,24 +65,12 @@
 
 
                                 @include('validate')
-									<form action="{{ route('education.store')}}" method="POST">
+									<form action="{{ route('skills.store')}}" method="POST">
                                         @csrf
 										<div class="form-group">
-											<label>Institute</label>
-											<input name="ins" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-											<label>Department</label>
-											<input name="depart" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-											<label>Passing Year</label>
-											<input name="year" type="text" class="form-control">
-                                        </div> 
-                                        <div class="form-group">
-											<label>CGPA</label>
-											<input name="cgpa" type="text" class="form-control">
-                                        </div>                                         
+											<label>Skills</label>
+											<input name="skill" type="text" class="form-control">
+                                        </div>                                      
 									
 										<div class="text-right">
 											<button type="submit" class="btn btn-primary">Submit</button>

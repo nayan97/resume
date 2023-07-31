@@ -27,7 +27,7 @@
                                         <tbody>
                                       
 
-                                        @forelse ($edu as $item)
+                                        @forelse ($traning as $item)
                                         <tr>
                                             <td>{{$loop ->index + 1}}</td>
                                             <td>{{$item -> name}}</td>
@@ -68,24 +68,35 @@
 
 
                                 @include('validate')
-									<form action="{{ route('education.store')}}" method="POST">
+									<form action="{{ route('traning.store')}}" method="POST">
                                         @csrf
 										<div class="form-group">
 											<label>Institute</label>
 											<input name="ins" type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
-											<label>Department</label>
-											<input name="depart" type="text" class="form-control">
+											<label>Title</label>
+											<input name="title" type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
-											<label>Passing Year</label>
-											<input name="year" type="text" class="form-control">
-                                        </div> 
+											<label>Class Start</label>
+											<input name="startdate" type="date" class="form-control">
+                                        </div>
                                         <div class="form-group">
-											<label>CGPA</label>
-											<input name="cgpa" type="text" class="form-control">
-                                        </div>                                         
+											<label>Class End</label>
+											<input name="enddate" type="date" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+											<label>Categories</label>                        
+											<ul class="">
+												@foreach ($skill as $skills)
+													<li> 
+														<label><input name="skill[]" value="{{ $skills -> id }}" type="checkbox"> {{ $skills -> name }}</label> 
+													</li>
+												@endforeach
+												
+											</ul>
+										</div>                                         
 									
 										<div class="text-right">
 											<button type="submit" class="btn btn-primary">Submit</button>
@@ -113,12 +124,12 @@
 											<input name="name" type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
-											<label>Skill</label>
-											<input name="skill" type="text" class="form-control">
+											<label>Title</label>
+											<input name="title" type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
-											<label>Headnig</label>
-											<input name="heading" type="text" class="form-control">
+											<label>Duration</label>
+											<input name="time" type="date" class="form-control">
                                         </div>
 
                                         <div class="form-group">

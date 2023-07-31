@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Edu;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class educationController extends Controller
+class skillController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $edu = Edu::latest() -> get();
-        return view('admin.edu.index',[
-            'edu'    => $edu,
+        $skills = Skill::latest() -> get();
+        return view('admin.courece.skill.index',[
+            'skills'    => $skills,
             'type'   => 'add'
         ]);
     }
@@ -34,18 +34,13 @@ class educationController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'ins'         => 'required',
-            'depart'      => 'required',
-            'year'        => 'required',
-            'cgpa'        => 'required'
+            'skill'         => 'required',
+
 
           ]);
-              Edu::create([
-            'ins'         => $request -> ins,
-            'dept'        => $request -> depart,
-            'date'        => $request -> year,
-            'cgpa'        => $request -> cgpa,
-         
+              Skill::create([
+            'name'         => $request -> skill,
+    
     
           ]);
           return back() -> with('success', 'Data Added  Successfuly');
