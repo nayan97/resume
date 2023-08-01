@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\skillController;
+use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\TraningController;
 use App\Http\Controllers\Admin\personalController;
 use App\Http\Controllers\Admin\AdminAuthController;
@@ -22,5 +23,6 @@ Route::resource('/personal', personalController::class);
 Route::resource('/education', educationController::class);
 Route::resource('/skills', skillController::class);
 Route::resource('/traning', TraningController::class);
+Route::resource('/theme', ThemeController::class);
 
 

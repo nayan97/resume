@@ -18,8 +18,6 @@
                                                 <td>#</td>
                                                 <td>Name</td>
                                                 <td>Skill</td>
-                                                <td>Heading</td>
-                            
                                                 <td>Created at</td>
                                                 <td>Action</td>
                                             </tr>
@@ -32,8 +30,6 @@
                                             <td>{{$loop ->index + 1}}</td>
                                             <td>{{$item -> name}}</td>
                                             <td>{{$item -> skill}}</td>
-                                            <td>{{$item -> heading}}</td>
-                                           
                                             <td>{{$item -> created_at -> diffForHumans()}}</td>
                                             <td>
                                                 <!----<a class="btn btn-sm btn-info" href="#"><i class="fe fe-eye"></i></a>-->
@@ -79,11 +75,6 @@
 											<input name="skill" type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
-											<label>Headnig</label>
-											<input name="heading" type="text" class="form-control">
-                                        </div>
-
-                                        <div class="form-group">
                                         <label>Personal Details</label>
                                            <textarea name="details" rows="4" cols="50"></textarea>
                                         </div>
@@ -118,10 +109,6 @@
                                         <div class="form-group">
 											<label>Skill</label>
 											<input name="skill" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-											<label>Headnig</label>
-											<input name="heading" type="text" class="form-control">
                                         </div>
 
                                         <div class="form-group">

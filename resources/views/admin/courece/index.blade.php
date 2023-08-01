@@ -91,7 +91,7 @@
 											<ul class="">
 												@foreach ($skill as $skills)
 													<li> 
-														<label><input name="skill[]" value="{{ $skills -> id }}" type="checkbox"> {{ $skills -> name }}</label> 
+														<label><input name="skill[]" value="{{ $skills -> name }}" type="checkbox"> {{ $skills -> name }}</label> 
 													</li>
 												@endforeach
 												

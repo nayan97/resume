@@ -13,21 +13,16 @@
 								<a href="{{ route('personal.index')}}"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
 							</li>
 							<li> 
-								<a href="patient-list.html"><i class="fe fe-user"></i> <span>Patients</span></a>
+								<a href="{{ route('education.index')}}"><i class="fe fe-user"></i> <span>Education</span></a>
 							</li>
 							<li> 
 								<a href="reviews.html"><i class="fe fe-star-o"></i> <span>Reviews</span></a>
 							</li>
-							<li> 
-								<a href="transactions-list.html"><i class="fe fe-activity"></i> <span>Transactions</span></a>
-							</li>
-							<li> 
-								<a href="settings.html"><i class="fe fe-vector"></i> <span>Settings</span></a>
-							</li>
+						
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="invoice-report.html">Invoice Reports</a></li>
+									<li><a href="{{ route('skills.index')}}">Invoice Reports</a></li>
 								</ul>
 							</li>
 							<li class="menu-title"> 

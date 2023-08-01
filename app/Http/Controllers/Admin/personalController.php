@@ -12,7 +12,7 @@ class personalController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    { 
         $personal = personal::latest() -> get();
         $type = 'add';
         return view('admin.personal.index', compact('personal', 'type'));
@@ -34,14 +34,12 @@ class personalController extends Controller
           $this -> validate($request, [
             'name'         => 'required',
             'skill'        => 'required',
-            'heading'      => 'required',
             'details'      => 'required'
 
           ]);
           personal::create([
             'name'         => $request -> name,
             'skill'        => $request -> skill,
-            'heading'      => $request -> heading,
             'profile'      => $request -> details,
          
     

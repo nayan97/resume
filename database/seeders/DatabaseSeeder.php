@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Admin;
+use App\Models\theme;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,6 +27,19 @@ class DatabaseSeeder extends Seeder
             'password'          =>   Hash::make('asdfghjkl'),
             
             ]);
+
+              
+        theme::create([
+
+            'id'                => 1,
+            'photo'             => 'photo.JPG',
+            'email'             => 'nayanislam085@gmail.com',
+            'cell'              => '01750639637',
+            'social'            =>  '',
+            'address'           =>   'Puthia, Rajshahi',
+            
+            ]);
+  
  
     }
 }

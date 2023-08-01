@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,29 +13,40 @@
     <link rel="stylesheet" href="{{ url('home/aseets/css/style.css')}}">
 </head>
 <body>
+
+@php
+
+$themes = App\Models\theme::find(1);
+$social = json_decode($themes -> social, false);
+@endphp
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-4 left-part">
                 <div class="top-pp text-center">
-                    <img src="{{ url('home/aseets/img/pp (4).JPG')}}" alt="">
+                         @if ($themes ->photo === 'photo.JPG')
+								<img style="width:180px; height:190px;" src="{{ url('home/aseets/img/photo.JPG') }}" alt="">
+						@else
+								<img style="width:180px; height:190px;" src="{{ url('home/aseets/img/' . $themes -> photo) }}" alt="">
+						@endif
                 </div>
                 <div class="contact">
                     <h3>contact</h3>
                     <div class=" social_link">
-                        <div class="social_button text-center">					
+                        <div class="social_button text-left">					
                             <ul>
-                                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
-                                <li><a href=""><i class="fab fa-pinterest"></i></a></li>
-                                <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                                <li><a href="{{ $social -> fb }}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{ $social -> din }}"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="{{ $social -> git }}"><i class="fab fa-github"></i></a></li>
+                                <li><a href="{{ $social -> mail }}"><i class="fas fa-envelope"></i></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="address">
-                        <p><i class="fab fa-facebook-f"></i>Lorem ipsum dolor sit amet.</p>
-                        <p>Lorem ipsum dolor sit.</p>
-                        <p>12345678900</p>
+                        <p><i class="fas fa-map-marker-alt"></i> {{ $themes -> address}}</p>
+                        <p><i class="fas fa-envelope"></i> {{ $themes -> email}}</p>
+                        <p><i class="fas fa-mobile"></i> 0{{ $themes -> cell}}</p>
                     </div>
                 </div>
                 <div class="contact skill">
@@ -80,12 +94,21 @@
                 </div>
                <div class="cource">
                     <h2>certification</h2>
+                    
+                 
                     <div>
-                        <h3>codertrust</h3>
-                        <h5>Advanced Web Development | June 2021 - Nov 2021</h5>
-                        <ul>
-                            <li><p>php, laravel, oop, mysqual, ajax</p></li>
-                        </ul>
+                        @foreach ($skill as $skills)
+                        <h3>{{ $skills -> name}}</h3>
+                            <h5>{{ $skills -> title}}| {{ $skills -> date}} - {{ $skills -> dates}}</h5>
+
+                                 @forelse (json_decode($skills -> skills) as $kaj) 
+                                    <p style="display:inline-block;">{{ $kaj }},</p>
+                                @empty
+                             
+                                @endforelse
+            
+                        @endforeach
+                
                     </div>
                </div>
                 
