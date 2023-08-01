@@ -5,7 +5,7 @@
 						<div class="col-md-8">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">Personal Details</h4>
+									<h4 class="card-title">Education</h4>
 								</div>
 								<div class="card-body">
                                     
@@ -17,8 +17,9 @@
                                                 <tr>
                                                 <td>#</td>
                                                 <td>Name</td>
-                                                <td>Skill</td>
-                                                <td>Heading</td>
+                                                <td>Program</td>
+                                                <td>Passing Year</td>
+                                                <td>CGPA</td>
                             
                                                 <td>Created at</td>
                                                 <td>Action</td>
@@ -30,9 +31,10 @@
                                         @forelse ($edu as $item)
                                         <tr>
                                             <td>{{$loop ->index + 1}}</td>
-                                            <td>{{$item -> name}}</td>
-                                            <td>{{$item -> skill}}</td>
-                                            <td>{{$item -> heading}}</td>
+                                            <td>{{$item -> ins}}</td>
+                                            <td>{{$item -> dept}}</td>
+                                            <td>{{$item -> cgpa}}</td>
+                                            <td>{{$item -> date}}</td>
                                            
                                             <td>{{$item -> created_at -> diffForHumans()}}</td>
                                             <td>

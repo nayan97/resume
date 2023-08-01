@@ -13,7 +13,11 @@ p{line-height: 150%;margin-bottom: 2em;}
 
 
 
-
+.resume-top{
+    width:960px;
+    border-bottom: 2px solid #ccc;
+    margin-left: -12px;
+}
 
 .left-part{
     background-color: #0072FF;

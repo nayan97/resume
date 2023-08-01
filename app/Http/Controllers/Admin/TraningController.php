@@ -70,8 +70,17 @@ class TraningController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
+    {    $class =Traning::findOrFail($id);
+        $traning =Traning::latest()-> get();
+        $skill =Skill::all();
+
+        return view('admin.courece.index',[
+            'traning'    => $traning,
+            'skill'      => $skill,
+            'type'       => 'edit',
+            'class'      => $class
+        ]);
+    
     }
 
     /**
@@ -79,7 +88,25 @@ class TraningController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $traningupdate =Traning::findOrFail($id);
+
+        $this -> validate($request, [
+            'ins'            => 'required',
+            'title'          => 'required',
+            'startdate'      => 'required',
+            'enddate'        => 'required'
+
+          ]);
+          $traningupdate -> update([
+            'name'         => $request -> ins,
+            'title'        => $request -> title,
+            'date'         => $request -> startdate,
+            'dates'        => $request -> enddate,
+            'skills'       => json_encode($request -> skill)
+         
+    
+          ]);
+          return back() -> with('success', 'Data Updated   Successfuly');
     }
 
     /**
@@ -87,6 +114,11 @@ class TraningController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $deleteData = Traning::findOrfail($id);
+
+        $deleteData -> delete();
+
+        return redirect()->back() -> with('success', 'Data Deleted Successfuly');
+        
     }
 }

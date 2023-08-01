@@ -58,16 +58,34 @@ class skillController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
+    {   $skill = Skill::findOrFail($id);
+        $skills = Skill::latest() -> get();
+        return view('admin.courece.skill.index',[
+            'skills'    => $skills,
+            'type'      => 'edit',
+            'skill'     => $skill
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
+
     {
-        //
+         $skillupdate =Skill::findOrFail($id);
+        
+        $this -> validate($request, [
+            'skill'         => 'required',
+
+
+          ]);
+          $skillupdate -> update([
+            'name'         => $request -> skill,
+    
+    
+          ]);
+          return back() -> with('success', 'Data Updated  Successfuly');
     }
 
     /**
@@ -75,6 +93,10 @@ class skillController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $deleteData = Skill::findOrfail($id);
+
+        $deleteData -> delete();
+
+        return redirect()->back() -> with('success', 'Data Deleted Successfuly');
     }
 }

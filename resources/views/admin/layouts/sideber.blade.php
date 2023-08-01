@@ -6,49 +6,36 @@
 								<span>Main</span>
 							</li>
 							<li class="active"> 
+								<a href="{{ url('/')}}"><i class="fe fe-home"></i> <span>FrontEnd</span></a>
+							</li>
+							<li> 
 								<a href="{{ route('admin.dashboard.page')}}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
+							<li> 
+								<a href="{{ route('theme.index')}}"><i class="fe fe-user-plus"></i> <span>Themes</span></a>
+							</li>
 						
 							<li> 
-								<a href="{{ route('personal.index')}}"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+								<a href="{{ route('personal.index')}}"><i class="fe fe-user"></i> <span>Profile</span></a>
 							</li>
 							<li> 
-								<a href="{{ route('education.index')}}"><i class="fe fe-user"></i> <span>Education</span></a>
+								<a href="{{ route('education.index')}}"><i class="fe fe-book"></i> <span>Education</span></a>
 							</li>
 							<li> 
-								<a href="reviews.html"><i class="fe fe-star-o"></i> <span>Reviews</span></a>
+								<a href="{{ route('summery.index')}}""><i class="fe fe-star-o"></i> <span>Summery</span></a>
+							</li>
+							<li> 
+								<a href="{{ route('hobby.index')}}""><i class="fe fe-star"></i> <span>Hobby</span></a>
 							</li>
 						
 							<li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-document"></i> <span> Cource</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="{{ route('skills.index')}}">Invoice Reports</a></li>
+									<li><a href="{{ route('skills.index')}}">Skills</a></li>
+									<li><a href="{{ route('traning.index')}}">Cource</a></li>
 								</ul>
 							</li>
-							<li class="menu-title"> 
-								<span>Pages</span>
-							</li>
-							<li> 
-								<a href="profile.html"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
-							</li>
-							<li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
-									<li><a href="login.html"> Login </a></li>
-									<li><a href="register.html"> Register </a></li>
-									<li><a href="forgot-password.html"> Forgot Password </a></li>
-									<li><a href="lock-screen.html"> Lock Screen </a></li>
-								</ul>
-							</li>
-							<li class="submenu">
-								<a href="#"><i class="fe fe-warning"></i> <span> Error Pages </span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
-									<li><a href="error-404.html">404 Error </a></li>
-									<li><a href="error-500.html">500 Error </a></li>
-								</ul>
-							</li>
-							
-						
+
 						</ul>
 					</div>
                 </div>

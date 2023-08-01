@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\SumController;
+use App\Http\Controllers\Admin\HobbyController;
 use App\Http\Controllers\Admin\skillController;
 use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\TraningController;
@@ -24,5 +26,7 @@ Route::resource('/education', educationController::class);
 Route::resource('/skills', skillController::class);
 Route::resource('/traning', TraningController::class);
 Route::resource('/theme', ThemeController::class);
+Route::resource('/summery', SumController::class);
+Route::resource('/hobby', HobbyController::class);
 
 

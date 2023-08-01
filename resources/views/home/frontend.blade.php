@@ -18,10 +18,16 @@
 
 $themes = App\Models\theme::find(1);
 $social = json_decode($themes -> social, false);
+$summ = App\Models\summery::latest()-> get();
+$hobby = App\Models\Hobby::latest()-> get();
+$per = App\Models\personal::latest() -> get();
 @endphp
 
 
     <div class="container">
+        <div class="col-md-12 resume-top">
+            <a class="btn btn-primary form-control" href="{{ route('admin.dashboard.page')}}">Admin Panel</a>
+        </div>
         <div class="row">
             <div class="col-md-4 left-part">
                 <div class="top-pp text-center">
@@ -53,10 +59,13 @@ $social = json_decode($themes -> social, false);
                     <h3>Skills summary</h3>
                     <div>
                         <ul>
-                            <li><a href=""></a>gg</li>
-                            <li><a href=""></a>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem quaerat, voluptatibus mollitia fugit, consequuntur qui sed ab tempore quam ad numquam. Temporibus aliquam iste atque quis soluta! Laboriosam, modi alias?</li>
-                            <li><a href=""></a>gg</li>
-                            <li><a href=""></a>gg</li>
+
+                        @foreach ( $summ as $sum )
+                        <li><a href=""></a>{{ $sum
+                                 ->name}}</li>
+                        @endforeach
+                            
+                          
                         </ul>
                     </div>
                 </div>
@@ -64,10 +73,10 @@ $social = json_decode($themes -> social, false);
                     <h3>hobee</h3>
                     <div class="skill">
                         <ul>
-                            <li><a href=""></a>gg</li>
-                            <li><a href=""></a>ll</li>
-                            <li><a href=""></a>gg</li>
-                            <li><a href=""></a>gg</li>
+                        @foreach ( $hobby as $hobbes )
+                        <li><a href=""></a>{{ $hobbes->name}}</li>
+                        @endforeach
+                            
                         </ul>
                     </div>
                 </div>
@@ -75,10 +84,13 @@ $social = json_decode($themes -> social, false);
             </div>
             <div class="col-md-8 right-part">
                 <div class="personal">
-                    <h1>md nayan islam</h1>
-                    <h3>Laravel developer</h3>
+                    @foreach ($per as $pers)
+                    <h1>{{ $pers -> name}}</h1>
+                    <h3>{{ $pers -> skill}}</h3>
                     <h2>personal profile</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, quaerat! Quibusdam necessitatibus quaerat sequi voluptates quidem facilis exercitationem, blanditiis sed, minima possimus vero dolore excepturi suscipit placeat optio saepe, repudiandae error nobis. Natus, non maxime. Voluptate nihil laboriosam eum provident officiis veniam nisi, cum voluptatem vel. Qui voluptatum accusantium debitis.</p>
+                    <p>{{ $pers -> profile}}</p> 
+                    @endforeach
+              
               
               </div>      
               <div class="edu">
